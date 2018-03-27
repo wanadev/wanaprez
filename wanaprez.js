@@ -111,6 +111,8 @@ function _doPrez({rootNode, slides, title}) {
         } else {
             document.title = `${title} - ${slide.title}`;
         }
+
+        document.body.className = `wanaprez-started on-type-${slide.type} on-slide-${slide.slug}`;
     }
 
     function _goPrev() {
