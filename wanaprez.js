@@ -1,6 +1,7 @@
 const marked = require("marked");
 const lodash = require("lodash");
 const httpRequest = require("obsidian-http-request");
+const highlightjs = require("highlightjs");
 
 const KEY_LEFT = 37;
 const KEY_UP = 38;
@@ -82,8 +83,13 @@ function _prezify(html) {
     };
 }
 
-function _highlight(html) {
-    return html;  // TODO
+function _highlight(prez) {
+    let {rootNode} = prez;
+    let code = rootNode.querySelectorAll("pre > code");
+    for (let i = 0 ; i < code.length ; i++) {
+        highlightjs.highlightBlock(code[i]);
+    }
+    return prez;
 }
 
 function _doPrez({rootNode, slides, title}) {

@@ -93,3 +93,8 @@ h3 {
 h3:after {
     margin: 50px 0 0 0;
 }
+
+pre {
+    font-size: 80%;
+    border: silver solid 4px;
+}
