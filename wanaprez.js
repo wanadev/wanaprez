@@ -88,7 +88,8 @@ function _highlight(html) {
 
 function _doPrez({rootNode, slides, title}) {
 
-    let currentSlide = 0;
+    let currentSlide = parseFloat(location.hash.substring(1)) || 0;
+    console.log(currentSlide, location.hash);
 
     function _updateSlides() {
         for (let i = 0 ; i < slides.length ; i++) {
@@ -113,6 +114,7 @@ function _doPrez({rootNode, slides, title}) {
         }
 
         document.body.className = `wanaprez-started on-type-${slide.type} on-slide-${slide.slug}`;
+        location.hash = `#${currentSlide}`;
     }
 
     function _goPrev() {
