@@ -97,4 +97,5 @@ h3:after {
 pre {
     font-size: 80%;
     border: silver solid 4px;
+    line-height: 1.5em;
 }
