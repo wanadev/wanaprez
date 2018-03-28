@@ -102,11 +102,16 @@ function _highlight(prez) {
 
 function _resolveUrls(prez) {
     let {rootNode} = prez;
+    const rootPath = `${location.protocol}//${location.host}${location.pathname}`;
 
     let images = rootNode.querySelectorAll("img, video, audio");
     for (let i = 0 ; i < images.length ; i++) {
-        let image = images[0];
-        image.src = url.resolve(config.url, image.src);
+        let image = images[i];
+        let imagePath = image.src;
+        if (imagePath.indexOf(rootPath) === 0) {
+            imagePath = imagePath.substring(rootPath.length);
+        }
+        image.src = url.resolve(config.url, imagePath);
     }
 
     return prez;
