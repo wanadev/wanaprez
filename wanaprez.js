@@ -1,3 +1,6 @@
+const querystring = require("querystring");
+const url = require("url");
+
 const marked = require("marked");
 const lodash = require("lodash");
 const httpRequest = require("obsidian-http-request");
@@ -7,6 +10,11 @@ const KEY_LEFT = 37;
 const KEY_UP = 38;
 const KEY_RIGHT = 39;
 const KEY_DOWN = 40;
+
+let config = {
+    url: "./prez.md",
+    slide: 0,
+};
 
 function _downloadPrez(url="./prez.md") {
     return httpRequest.getText(url);
@@ -92,10 +100,19 @@ function _highlight(prez) {
     return prez;
 }
 
-function _doPrez({rootNode, slides, title}) {
+function _resolveUrls(prez) {
+    let {rootNode} = prez;
 
-    let currentSlide = parseFloat(location.hash.substring(1)) || 0;
-    console.log(currentSlide, location.hash);
+    let images = rootNode.querySelectorAll("img, video, audio");
+    for (let i = 0 ; i < images.length ; i++) {
+        let image = images[0];
+        image.src = url.resolve(config.url, image.src);
+    }
+
+    return prez;
+}
+
+function _doPrez({rootNode, slides, title}) {
 
     function _updateSlides() {
         for (let i = 0 ; i < slides.length ; i++) {
@@ -104,14 +121,14 @@ function _doPrez({rootNode, slides, title}) {
             slide.node.classList.remove("slide-flow-current");
             slide.node.classList.remove("slide-flow-next");
 
-            if (i === currentSlide - 1) slide.node.classList.add("slide-flow-prev");
-            if (i === currentSlide) slide.node.classList.add("slide-flow-current");
-            if (i === currentSlide + 1) slide.node.classList.add("slide-flow-next");
+            if (i === config.slide - 1) slide.node.classList.add("slide-flow-prev");
+            if (i === config.slide) slide.node.classList.add("slide-flow-current");
+            if (i === config.slide + 1) slide.node.classList.add("slide-flow-next");
         }
     }
 
     function _updatePrez() {
-        let slide = slides[currentSlide];
+        let slide = slides[config.slide];
 
         if (slide.type == "main-title") {
             document.title = title;
@@ -120,17 +137,17 @@ function _doPrez({rootNode, slides, title}) {
         }
 
         document.body.className = `wanaprez-started on-type-${slide.type} on-slide-${slide.slug}`;
-        location.hash = `#${currentSlide}`;
+        location.hash = `#${querystring.stringify(config)}`;
     }
 
     function _goPrev() {
-        currentSlide = Math.max(0, currentSlide - 1);
+        config.slide = Math.max(0, config.slide - 1);
         _updatePrez();
         _updateSlides();
     }
 
     function _goNext() {
-        currentSlide = Math.min(slides.length - 1, currentSlide + 1);
+        config.slide = Math.min(slides.length - 1, config.slide + 1);
         _updatePrez();
         _updateSlides();
     }
@@ -185,9 +202,13 @@ function _doPrez({rootNode, slides, title}) {
 
 }
 
-_downloadPrez()
+lodash.merge(config, querystring.parse(location.hash.substring(1)));
+config.slide = parseFloat(config.slide);
+
+_downloadPrez(config.url)
     .then(_toHtml)
     .then(_prezify)
     .then(_highlight)
+    .then(_resolveUrls)
     .then(_doPrez)
     .done();
