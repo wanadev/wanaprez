@@ -68,11 +68,13 @@ h3:after {
 
 h1 {
     font-size: 300%;
+    line-height: 1.5em;
 }
 
 h2 {
     font-size: 200%;
     color: #6441db;
+    line-height: 1.5em;
 }
 
 h2:after {
@@ -82,6 +84,7 @@ h2:after {
 h3 {
     font-size: 150%;
     color: #34005b;
+    line-height: 1.5em;
 }
 
 h3:after {
