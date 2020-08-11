@@ -1,44 +1,63 @@
+# Wanaprez!
+
+— press ⬇️⬆️ keys or scroll 🖱️ to navigate —
+
+## What is Wanaprez?
+
+### A presentation tool
+
+**Wanaprez** is:
+
+* a simple presentation tool
+* written in JavaScript
+
+### Yet another presentation tool?!
+
+Yes... an other one... 😅️
+
+But...
+
+### Quick and easy
+
+**Wanaprez** was made to be quick and easy to use:
+
+* Just take 5 min to write some **Markdown**,
+* give it to Wanaprez,
+* and you're done!
+
+## How does it work?
+
+### Basically... Markdown
+
+```markdown
 # My Prez
 
-## Part separator
+## Some Title
 
-### Slide 1: paragraphs
+### Slide 1
 
-**Lorem ipsum** dolor _sit amet_, consectetur ~~adipiscing elit~~. Sed et sem
-mi. Duis augue ante, varius et venenatis eu, consectetur sit amet lectus. In
-hac habitasse platea dictumst. Aliquam erat volutpat. Aliquam erat volutpat.
+**Lorem ipsum** dolor _sit amet_, consectetur ~~adipiscing elit~~.
 
-In auctor augue vel accumsan tempus. Pellentesque ante neque, dignissim ac
-neque finibus, auctor fringilla est. Integer facilisis lacinia dolor vel
-posuere. Aenean lectus risus, lacinia sit amet felis non, bibendum interdum
-arcu. Curabitur suscipit imperdiet magna eu finibus. Proin id est mattis,
-egestas dui nec, pretium leo.
+### Slide 2
 
-Morbi eleifend finibus enim, non mollis neque viverra sed. Suspendisse
-malesuada turpis vitae pretium tempus. Morbi viverra leo et vulputate molestie.
-
-### Slide 2: lists
-
-* Lorem ipsum dolor sit amet,
-* consectetur adipiscing elit.
-* Sed et sem mi. Duis
-* augue ante, varius et
-    * venenatis eu,
-    * consectetur sit amet lectus.
-    * In hac
-* habitasse platea dictumst.
-
-### Slide 3: code
-
-Lorem ipsum `dolor sit` amet:
-
-
-```javascript
-function hello(name) {
-    console.log("Hello", name);
-}
+* Foo
+* Bar
+* Baz
 ```
 
-### Slide 4: Links & images
+### This prez
 
-this is [a link](./)
+As an example, you can look at the source of this prez, (yes the one you are
+reading):
+
+* [prez.md](./prez.md)
+
+## Links
+
+### Github
+
+Wanaprez is Open Source. You will find it on Github:
+
+* https://github.com/wanadev/wanaprez
+
+## That's all folks!

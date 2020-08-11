@@ -5,6 +5,7 @@ const marked = require("marked");
 const lodash = require("lodash");
 const httpRequest = require("obsidian-http-request");
 const highlightjs = require("highlightjs");
+const Q = require("q");
 
 const KEY_LEFT = 37;
 const KEY_UP = 38;
@@ -12,7 +13,7 @@ const KEY_RIGHT = 39;
 const KEY_DOWN = 40;
 
 let config = {
-    url: "./prez.md",
+    url: "/",
     slide: 0,
 };
 
@@ -207,13 +208,40 @@ function _doPrez({rootNode, slides, title}) {
 
 }
 
+function prezFromUrl(prezUrl) {
+    config.url = prezUrl;
+    _downloadPrez(config.url)
+        .then(_toHtml)
+        .then(_prezify)
+        .then(_highlight)
+        .then(_resolveUrls)
+        .then(_doPrez)
+        .catch(e => {
+            console.error(e);
+            alert(e);
+        })
+        .done();
+}
+
+function prezFromText(prezText) {
+    Q(prezText)
+        .then(_toHtml)
+        .then(_prezify)
+        .then(_highlight)
+        .then(_resolveUrls)
+        .then(_doPrez)
+        .catch(e => {
+            console.error(e);
+            alert(e);
+        })
+        .done();
+}
+
 lodash.merge(config, querystring.parse(location.hash.substring(1)));
 config.slide = parseFloat(config.slide);
 
-_downloadPrez(config.url)
-    .then(_toHtml)
-    .then(_prezify)
-    .then(_highlight)
-    .then(_resolveUrls)
-    .then(_doPrez)
-    .done();
+module.exports = {
+    config,
+    prezFromUrl,
+    prezFromText,
+};

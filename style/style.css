@@ -17,11 +17,6 @@ body.on-type-main-title {
     color: #fff;
 }
 
-body.on-type-infill-title {
-    /*background: #6441db;*/
-    /*color: #fff;*/
-}
-
 .slide {
     position: absolute;
     display: flex;
@@ -35,7 +30,6 @@ body.on-type-infill-title {
     margin-left: calc(-1024px / 2);
     margin-top: calc(-768px / 2);
     padding: 50px;
-    /*border: red solid 1px;*/
     pointer-events: none;
     opacity: 0;
     transition: transform .5s, opacity .5s;
@@ -98,4 +92,80 @@ pre {
     font-size: 80%;
     border: silver solid 4px;
     line-height: 1.5em;
+}
+
+/** HOME **/
+
+#wanaprez-home {
+    max-width: 800px;
+    padding: 0 20px;
+    margin: 0 auto;
+    font-size: 16pt;
+    box-sizing: border-box;
+    overflow: scroll;
+    height: 100%;
+}
+
+#wanaprez-home h1 {
+    color: #6441db;
+    text-align: center;
+}
+
+#wanaprez-home h1:after {
+    content: " ";
+    background-color: #ff02a7;
+    display: block;
+    width: 100px;
+    height: 10px;
+    margin: 50px auto;
+}
+
+#wanaprez-home h2 {
+    color: #34005b;
+    font-size: 150%;
+    clear: both;
+}
+
+#wanaprez-home h2:after {
+    display: none;
+}
+
+#wanaprez-home input,
+#wanaprez-home textarea {
+    border: silver solid 2px;
+    line-height: 1.3em;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+#wanaprez-home button {
+    font-family: "Cantarell", sans-serif;
+    font-size: 12pt;
+    display: inline-block;
+    height: 40px;
+    line-height: 30px;
+    border-radius: 20px;
+    padding: 5px 20px;
+    margin: 0;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    border: transparent solid 1px;
+    transition: background 300ms, border 300ms, color 300ms;
+    box-sizing: border-box;
+    border-color: transparent;
+    background: #FF00A4;
+    color: #fff;
+    outline: none;
+    min-width: 100px;
+    float: right;
+}
+
+#wanaprez-home button:hover {
+    border-color: #FF00A4;
+    background: transparent;
+    color: #FF00A4
 }

@@ -4,16 +4,38 @@
 
     <head>
         <meta charset="UTF-8" />
-        <title>Wanaprez</title>
+        <title>Wanaprez!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!--<link rel="shortcut icon" type="image/png" href="favicon.png" />-->
         <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="./node_modules/highlightjs/styles/tomorrow.css" />
-        <link type="text/css" rel="stylesheet" href="style.css" />
+        <link type="text/css" rel="stylesheet" href="./style/tomorrow.css" />
+        <link type="text/css" rel="stylesheet" href="./style/style.css" />
         <script src="./wanaprez.dist.js"></script>
     </head>
 
     <body>
+        <div id="wanaprez-home" style="display: none;">
+            <h1>Wanaprez!</h1>
+            <h2>Start from an URL...</h2>
+            <div id="wanaprez-fromurl">
+                <input type="text" id="wanaprez-fromurl-url" placeholder="http://example.com/prez.md" />
+                <button id="wanaprez-fromurl-button">Prez!</button>
+            </div>
+            <h2>... or paste some Markdown here</h2>
+            <div id="wanaprez-fromtext">
+                <textarea id="wanaprez-fromtext-md" rows="10" cols="60" placeholder="# My Prez
+
+## Some Title
+
+### Slide 1
+
+Lorem ipsum dolor...
+"></textarea>
+                <button id="wanaprez-fromtext-button">Prez!</button>
+            </div>
+            <h2>What is Wanaprez?</h2>
+            Read more... on the <a href="#url=./prez.md" id="wanaprez-demo">Wanaprez Prez</a>!
+        </div>
     </body>
 
 </html>
