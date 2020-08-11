@@ -50,4 +50,4 @@ You can build the `wanaprez.dist.js` file with the following command:
 
 ## Changelog
 
-TODO
+* **1.0.0:** First public release
