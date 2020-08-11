@@ -1,7 +1,7 @@
 {
   "name": "wanaprez",
   "version": "1.0.0",
-  "description": "Simply turns Markdown to presentation",
+  "description": "Simply turns Markdown into presentation",
   "main": "wanaprez/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,4 +1,4 @@
-# Wanaprez! — Simply turns Markdown to presentation
+# Wanaprez! - Simply turns Markdown into presentation
 
 Wanaprez is just a simple presentation tools written in JavaScript.
 
@@ -8,10 +8,14 @@ Wanaprez is just a simple presentation tools written in JavaScript.
 * give it to Wanaprez,
 * and you're done!
 
+**Try it out!**
+
+* https://prez.wanadev.org/
+
 
 ## How does it work?
 
-Just write Markdow... It is as simple as that!
+Just write Markdown... It is as simple as that!
 
 ```markdown
 # My Prez
@@ -32,7 +36,9 @@ Just write Markdow... It is as simple as that!
 
 ## Demo
 
-TODO
+Look at the demo prez here:
+
+* https://prez.wanadev.org/#url=prez.md&slide=0
 
 
 ## How to build

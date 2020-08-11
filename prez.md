@@ -50,7 +50,7 @@ But...
 As an example, you can look at the source of this prez, (yes the one you are
 reading):
 
-* [prez.md](./prez.md)
+* [prez.md](https://github.com/wanadev/wanaprez/blob/master/prez.md)
 
 ## Links
 
