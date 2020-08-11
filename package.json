@@ -1,14 +1,14 @@
 {
   "name": "wanaprez",
   "version": "1.0.0",
-  "description": "Generate presentation from Markdown",
-  "main": "wanaprez.js",
+  "description": "Simply turns Markdown to presentation",
+  "main": "wanaprez/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "browserify wanaprez/index.js -o wanaprez.dist.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Wanadev <contact@wanadev.fr>",
+  "license": "BSD-3-Close",
   "devDependencies": {
     "browserify": "^16.1.1"
   },
