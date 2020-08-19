@@ -50,5 +50,8 @@ You can build the `wanaprez.dist.js` file with the following command:
 
 ## Changelog
 
+* **1.1.0:**
+  * Rescales the prensentation when the screen is too small or too big
+  * Supports mobiles devices
 * **1.0.1:** Some CSS fixes
 * **1.0.0:** First public release
