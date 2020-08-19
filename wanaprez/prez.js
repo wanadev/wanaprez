@@ -30,7 +30,8 @@ function _prezify(html) {
     tmpDiv.innerHTML = html;
     let elements = Array.prototype.slice.call(tmpDiv.childNodes, 0);
 
-    let prez = document.createDocumentFragment();
+    let prez = document.createElement("div");
+    prez.id = "wanaprez";
     let prezTitle = "Wanaprez";
     let slides = [];
     let slideIndex = -1;
@@ -120,6 +121,21 @@ function _resolveUrls(prez) {
 
 function _doPrez({rootNode, slides, title}) {
 
+    const SLIDES_WIDTH = 1024;
+    const SLIDES_HEIGHT = 768;
+
+    function _scalePrez() {
+        const wDelta = (window.innerWidth - 20) / SLIDES_WIDTH;
+        const hDelta = (window.innerHeight - 20) / SLIDES_HEIGHT;
+        const scale = Math.min(wDelta, hDelta);
+
+        if (scale < 1 || scale > 1.5) {
+            rootNode.style.transform = `scale(${scale})`;
+        } else {
+            rootNode.style.transform = "";
+        }
+    }
+
     function _updateSlides() {
         for (let i = 0 ; i < slides.length ; i++) {
             let slide = slides[i];
@@ -202,7 +218,9 @@ function _doPrez({rootNode, slides, title}) {
     document.addEventListener("keydown", _onKeydown);
     document.addEventListener("mousewheel", _onMousewheel);
     document.addEventListener("DOMMouseScroll", _onMousewheel);
+    window.addEventListener("resize", _scalePrez);
 
+    _scalePrez();
     _updateSlides();
     _updatePrez();
 

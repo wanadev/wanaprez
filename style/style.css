@@ -17,6 +17,11 @@ body.on-type-main-title {
     color: #fff;
 }
 
+#wanaprez {
+    width: 100%;
+    height: 100%;
+}
+
 .slide {
     position: absolute;
     display: flex;
