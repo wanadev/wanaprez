@@ -44866,6 +44866,8 @@ function _doPrez({rootNode, slides, title}) {
 
     const SLIDES_WIDTH = 1024;
     const SLIDES_HEIGHT = 768;
+    const DRAG_THRESHOLD = 50;
+    let touchDrag = false;
 
     function _scalePrez() {
         const wDelta = (window.innerWidth - 20) / SLIDES_WIDTH;
@@ -44957,10 +44959,42 @@ function _doPrez({rootNode, slides, title}) {
         }
     }
 
+    function _onTouchStart(event) {
+        console.log(event);
+        if (event.touches.length !== 1) return;
+
+        touchDrag = event.touches[0].screenY;
+    }
+
+    function _onTouchMove(event) {
+        if (event.touches.length !== 1) return;
+        if (touchDrag === null) return;
+
+        let delta = event.touches[0].screenY - touchDrag;
+
+        if (Math.abs(delta) > DRAG_THRESHOLD) {
+            if (delta > 0) {
+                _goPrev();
+            } else {
+                _goNext();
+            }
+            touchDrag = null;
+        }
+    }
+
+    function _onTouchEnd(event) {
+        if (event.touches.length !== 1) return;
+
+        touchDrag = null;
+    }
+
     document.body.appendChild(rootNode);
     document.addEventListener("keydown", _onKeydown);
     document.addEventListener("mousewheel", _onMousewheel);
     document.addEventListener("DOMMouseScroll", _onMousewheel);
+    document.addEventListener("touchstart", _onTouchStart);
+    document.addEventListener("touchmove", _onTouchMove);
+    document.addEventListener("touchend", _onTouchEnd);
     window.addEventListener("resize", _scalePrez);
 
     _scalePrez();
