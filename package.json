@@ -10,12 +10,12 @@
   "author": "Wanadev <contact@wanadev.fr>",
   "license": "BSD-3-Close",
   "devDependencies": {
-    "browserify": "^16.1.1"
+    "browserify": "^17.0.0"
   },
   "dependencies": {
     "highlightjs": "^9.10.0",
-    "lodash": "^4.17.5",
-    "marked": "^0.3.19",
-    "obsidian-http-request": "^1.3.1"
+    "lodash": "^4.17.21",
+    "marked": "^3.0.4",
+    "obsidian-http-request": "^1.4.0"
   }
 }
