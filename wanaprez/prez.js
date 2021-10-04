@@ -37,48 +37,39 @@ function _prezify(html) {
     let slideIndex = -1;
 
     for (let i = 0 ; i < elements.length ; i++) {
-        let slide = null;
-        switch (elements[i].nodeName) {
-            case "H1":
-                slideIndex += 1;
-                slide = {
-                    type: "main-title",
-                    title: elements[i].innerText,
-                    slug: lodash.kebabCase(elements[i].innerText),
-                    node: document.createElement("div"),
-                };
-                slide.node.id = `slide-${slide.slug}`;
-                slide.node.className = `slide slide-type-${slide.type}`;
-                prezTitle = slide.title;
-                slides[slideIndex] = slide;
-                prez.appendChild(slide.node);
-                break;
-            case "H2":
-                slideIndex += 1;
-                slide = {
-                    type: "infill-title",
-                    title: elements[i].innerText,
-                    slug: lodash.kebabCase(elements[i].innerText),
-                    node: document.createElement("div"),
-                };
-                slide.node.id = `slide-${slide.slug}`;
-                slide.node.className = `slide slide-type-${slide.type}`;
-                slides[slideIndex] = slide;
-                prez.appendChild(slide.node);
-                break;
-            case "H3":
-                slideIndex += 1;
-                slide = {
-                    type: "slide",
-                    title: elements[i].innerText,
-                    slug: lodash.kebabCase(elements[i].innerText),
-                    node: document.createElement("div"),
-                };
-                slide.node.id = `slide-${slide.slug}`;
-                slide.node.className = `slide slide-type-${slide.type}`;
-                slides[slideIndex] = slide;
-                prez.appendChild(slide.node);
-                break;
+        let slide = {
+            type: undefined,
+            title: undefined,
+            slug: undefined,
+            node: undefined
+        };
+        const nodeName = elements[i].nodeName;
+
+        if ("H1 H2 H3 HR".includes(nodeName)) {
+            slideIndex += 1;
+            slide.node = document.createElement("div");
+            slide.title = elements[i].innerText;
+            slide.slug = lodash.kebabCase(elements[i].innerText);
+			slide.type = "slide";
+
+            switch (nodeName) {
+                case "H1":
+                    slide.type = "main-title";
+			        prezTitle = slide.title;
+                    break;
+                case "H2":
+                    slide.type = "infill-title";
+                    break;
+                case "HR":
+                    slide.slug = `break-${slideIndex}`;
+                    break;
+                default:
+                    break;
+            }
+            slide.node.id = `slide-${slide.slug}`;
+			slide.node.className = `slide slide-type-${slide.type}`;
+			slides[slideIndex] = slide;
+			prez.appendChild(slide.node);
         }
         if (slideIndex < 0) {
             continue;
@@ -148,6 +139,7 @@ function _doPrez({rootNode, slides, title}) {
             if (i === config.slide - 1) slide.node.classList.add("slide-flow-prev");
             if (i === config.slide) slide.node.classList.add("slide-flow-current");
             if (i === config.slide + 1) slide.node.classList.add("slide-flow-next");
+            if (slide.node.firstChild.nodeName === "HR") slide.node.firstChild.remove();
         }
     }
 
