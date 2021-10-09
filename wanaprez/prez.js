@@ -19,16 +19,16 @@ let config = {
 };
 
 function _toggleFullscreen() {
-	const elem = document.documentElement;
-	if (!document.fullscreenElement) {
-		elem.requestFullscreen().catch((err) => {
-			alert(
-				`Error attempting to enable full-screen mode: ${err.message} (${err.name})`
-			);
-		});
-	} else {
-		document.exitFullscreen();
-	}
+    const elem = document.documentElement;
+    if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch((err) => {
+            alert(
+                `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+            );
+        });
+    } else {
+        document.exitFullscreen();
+    }
 }
 
 function _downloadPrez(url="./prez.md") {
@@ -200,9 +200,9 @@ function _doPrez({rootNode, slides, title}) {
             case KEY_RIGHT:
                 _goNext();
                 break;
-			case KEY_F:
-				_toggleFullscreen();
-				break;
+            case KEY_F:
+                _toggleFullscreen();
+                break;
         }
     }
 
