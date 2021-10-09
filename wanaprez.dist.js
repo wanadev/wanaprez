@@ -52709,7 +52709,6 @@ const KEY_LEFT = 37;
 const KEY_UP = 38;
 const KEY_RIGHT = 39;
 const KEY_DOWN = 40;
-const KEY_F = 70;
 
 let config = {
     url: "/",
@@ -52749,12 +52748,12 @@ function _prezify(html) {
             slide.node = document.createElement("div");
             slide.title = elements[i].innerText;
             slide.slug = lodash.kebabCase(elements[i].innerText);
-			slide.type = "slide";
+            slide.type = "slide";
 
             switch (nodeName) {
                 case "H1":
                     slide.type = "main-title";
-			        prezTitle = slide.title;
+                    prezTitle = slide.title;
                     break;
                 case "H2":
                     slide.type = "infill-title";
@@ -52766,9 +52765,9 @@ function _prezify(html) {
                     break;
             }
             slide.node.id = `slide-${slide.slug}`;
-			slide.node.className = `slide slide-type-${slide.type}`;
-			slides[slideIndex] = slide;
-			prez.appendChild(slide.node);
+            slide.node.className = `slide slide-type-${slide.type}`;
+            slides[slideIndex] = slide;
+            prez.appendChild(slide.node);
         }
         if (slideIndex < 0) {
             continue;
