@@ -1,5 +1,9 @@
 # Wanaprez! - Simply turns Markdown into presentation
 
+[![Lint](https://github.com/wanadev/wanaprez/actions/workflows/lint.yml/badge.svg)](https://github.com/wanadev/wanaprez/actions/workflows/lint.yml)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/wanadev/wanaprez)
+[![License](https://img.shields.io/badge/License-BSD%203%20Clause-freen)](https://github.com/wanadev/wanaprez/blob/master/LICENSE)
+
 Wanaprez is just a simple presentation tools written in JavaScript.
 
 **Quick and easy:**
