@@ -11,11 +11,25 @@ const KEY_LEFT = 37;
 const KEY_UP = 38;
 const KEY_RIGHT = 39;
 const KEY_DOWN = 40;
+const KEY_F = 70;
 
 let config = {
     url: "/",
     slide: 0,
 };
+
+function _toggleFullscreen() {
+    const elem = document.documentElement;
+    if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch((err) => {
+            alert(
+                `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+            );
+        });
+    } else {
+        document.exitFullscreen();
+    }
+}
 
 function _downloadPrez(url="./prez.md") {
     return httpRequest.getText(url);
@@ -185,6 +199,9 @@ function _doPrez({rootNode, slides, title}) {
             case KEY_DOWN:
             case KEY_RIGHT:
                 _goNext();
+                break;
+            case KEY_F:
+                _toggleFullscreen();
                 break;
         }
     }
