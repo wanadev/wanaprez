@@ -31,6 +31,10 @@ Just write Markdown... It is as simple as that!
 * Foo
 * Bar
 * Baz
+
+---
+
+Slide 3
 ```
 
 * Press <kbd>Up</kbd> / <kbd>Down</kbd> or scroll to navigate,
