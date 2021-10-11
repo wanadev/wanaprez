@@ -33,7 +33,8 @@ Just write Markdown... It is as simple as that!
 * Baz
 ```
 
-Press <kbd>F</kbd> to toggle fullscreen.
+* Press <kbd>Up</kbd> / <kbd>Down</kbd> or scroll to navigate,
+* press <kbd>F</kbd> to toggle fullscreen.
 
 ## Demo
 

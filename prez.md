@@ -2,6 +2,8 @@
 
 — press ⬇️⬆️ keys or scroll 🖱️ to navigate —
 
+— press <kbd>F</kbd> to toggle fullscreen —
+
 ## What is Wanaprez?
 
 ### A presentation tool
