@@ -45,7 +45,7 @@ function _prezify(html) {
         };
         const nodeName = elements[i].nodeName;
 
-        if ("H1 H2 H3 HR".includes(nodeName)) {
+        if (["H1", "H2", "H3", "HR"].includes(nodeName)) {
             slideIndex += 1;
             slide.node = document.createElement("div");
             slide.title = elements[i].innerText;
@@ -61,6 +61,7 @@ function _prezify(html) {
                     slide.type = "infill-title";
                     break;
                 case "HR":
+                    slide.title = "";
                     slide.slug = `break-${slideIndex}`;
                     break;
                 default:
