@@ -51,15 +51,24 @@ Look at the demo prez here:
 * https://prez.wanadev.org/#url=prez.md&slide=0
 
 
-## How to build
+## Hacking
 
 You can build the `wanaprez.dist.js` file with the following command:
 
     npm run build
 
+You can check coding style with the following command:
+
+    npm run lint
+
 
 ## Changelog
 
+* **1.2.0:**
+  * Allow to use an horizontal rule to create slides without titles (@MickGe, #4)
+  * Toggle fullscreen with `F` key (@MickGe, #5)
+  * Limit picture size to slides width (@MickGe, #6)
+  * Add code linting (ESLint)
 * **1.1.0:**
   * Rescales the prensentation when the screen is too small or too big
   * Supports mobiles devices
