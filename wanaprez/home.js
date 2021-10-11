@@ -1,4 +1,4 @@
-const prez = require("./prez.js")
+const prez = require("./prez.js");
 
 function hideHome() {
     const eHomeDiv = document.getElementById("wanaprez-home");
@@ -34,13 +34,13 @@ function main() {
         const prezText = eTextField.value;
         console.log("Loading prez from text");
         hideHome();
-        prez.prezFromText(prezText)
+        prez.prezFromText(prezText);
     }
 
     function startFromDemo(event) {
         console.log("Loading demo prez");
         event.preventDefault();
-        hideHome()
+        hideHome();
         prez.prezFromUrl("./prez.md");
     }
 
@@ -54,4 +54,4 @@ addEventListener("load", main);
 module.exports = {
     hideHome,
     showHome,
-}
+};

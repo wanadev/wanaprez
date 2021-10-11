@@ -1,5 +1,5 @@
-const prez = require("./prez.js")
-const home = require("./home.js")
+const prez = require("./prez.js");
+const home = require("./home.js");
 
 function main() {
     if (prez.config.url != "/") {

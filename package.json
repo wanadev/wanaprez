@@ -5,12 +5,14 @@
   "main": "wanaprez/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint wanaprez/*.js",
     "build": "browserify wanaprez/index.js -o wanaprez.dist.js"
   },
   "author": "Wanadev <contact@wanadev.fr>",
   "license": "BSD-3-Close",
   "devDependencies": {
-    "browserify": "^16.1.1"
+    "browserify": "^16.1.1",
+    "eslint": "^8.0.0"
   },
   "dependencies": {
     "highlightjs": "^9.10.0",
