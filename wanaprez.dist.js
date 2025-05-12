@@ -44681,15 +44681,11 @@ function showHome() {
 }
 
 function main() {
-    const eUrlField = document.getElementById("wanaprez-fromurl-url");
-    const eUrlButton = document.getElementById("wanaprez-fromurl-button");
-    const eTextField = document.getElementById("wanaprez-fromtext-md");
-    const eTextButton = document.getElementById("wanaprez-fromtext-button");
+    const eFromUrlForm = document.getElementById("wanaprez-fromurl-form");
+    const eFromTextForm = document.getElementById("wanaprez-fromtext-form");
     const eDemoLink = document.getElementById("wanaprez-demo");
 
-    function startFromUrl() {
-        const prezUrl = eUrlField.value;
-
+    function startFromUrl(prezUrl) {
         if (!prezUrl) {
             alert("Please enter an URL.");
             return;
@@ -44700,8 +44696,12 @@ function main() {
         prez.prezFromUrl(prezUrl);
     }
 
-    function startFromText() {
-        const prezText = eTextField.value;
+    function startFromText(prezText) {
+        if (!prezText) {
+            alert("Please enter an URL.");
+            return;
+        }
+
         console.log("Loading prez from text");
         hideHome();
         prez.prezFromText(prezText);
@@ -44714,8 +44714,22 @@ function main() {
         prez.prezFromUrl("./prez.md");
     }
 
-    eUrlButton.onclick = startFromUrl;
-    eTextButton.onclick = startFromText;
+    eFromUrlForm.onsubmit = e => {
+        e.preventDefault();
+        const data = new FormData(e.currentTarget);
+        const url = data.get("url");
+
+        startFromUrl(url);
+    };
+
+    eFromTextForm.onsubmit = e => {
+        e.preventDefault();
+        const data = new FormData(e.currentTarget);
+        const text = data.get("text");
+
+        startFromText(text);
+    };
+
     eDemoLink.onclick = startFromDemo;
 }
 
@@ -44903,6 +44917,10 @@ function _doPrez({rootNode, slides, title}) {
 
     function _updatePrez() {
         let slide = slides[config.slide];
+
+        if (!slide) {
+            return;
+        }
 
         if (slide.type == "main-title") {
             document.title = title;
