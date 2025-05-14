@@ -28,7 +28,7 @@ function main() {
 
     function startFromText(prezText) {
         if (!prezText) {
-            alert("Please enter an URL.");
+            alert("Please enter some text.");
             return;
         }
 
