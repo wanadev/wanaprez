@@ -66,6 +66,10 @@ You can check coding style with the following command:
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
+  * Nothing yet ;)
+
+* **v1.3.0:**
+
   * feat(home): added form validation (@Zusoy, #7)
   * fix(wanaprez): prevent error with empty prez (@Zusoy, #7)
 
