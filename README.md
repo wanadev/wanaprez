@@ -64,13 +64,27 @@ You can check coding style with the following command:
 
 ## Changelog
 
-* **1.2.0:**
-  * Allow to use an horizontal rule to create slides without titles (@MickGe, #4)
-  * Toggle fullscreen with `F` key (@MickGe, #5)
-  * Limit picture size to slides width (@MickGe, #6)
-  * Add code linting (ESLint)
-* **1.1.0:**
-  * Rescales the prensentation when the screen is too small or too big
-  * Supports mobiles devices
-* **1.0.1:** Some CSS fixes
-* **1.0.0:** First public release
+* **[NEXT]** (changes on ``master`` that have not been released yet):
+
+  * feat(home): added form validation (@Zusoy, #7)
+  * fix(wanaprez): prevent error with empty prez (@Zusoy, #7)
+
+* **v1.2.0:**
+
+  * feat: Allow to use an horizontal rule to create slides without titles (@MickGe, #4)
+  * feat: Toggle fullscreen with `F` key (@MickGe, #5)
+  * fix: Limit picture size to slides width (@MickGe, #6)
+  * misc: Add code linting (ESLint)
+
+* **v1.1.0:**
+
+  * feat: Rescales the prensentation when the screen is too small or too big
+  * feat: Supports mobiles devices
+
+* **v1.0.1:**
+
+  * fix: Some CSS fixes
+
+* **v1.0.0:**
+
+  * First public release
