@@ -161,6 +161,10 @@ function _doPrez({rootNode, slides, title}) {
     function _updatePrez() {
         let slide = slides[config.slide];
 
+        if (!slide) {
+            return;
+        }
+
         if (slide.type == "main-title") {
             document.title = title;
         } else {

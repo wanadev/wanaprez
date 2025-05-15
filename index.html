@@ -18,20 +18,24 @@
             <h1>Wanaprez!</h1>
             <h2>Start from an URL...</h2>
             <div id="wanaprez-fromurl">
-                <input type="text" id="wanaprez-fromurl-url" placeholder="http://example.com/prez.md" />
-                <button id="wanaprez-fromurl-button">Prez!</button>
+                <form id="wanaprez-fromurl-form">
+                    <input type="url" id="wanaprez-fromurl-url" placeholder="http://example.com/prez.md" name="url" required />
+                    <button id="wanaprez-fromurl-button" type="submit">Prez!</button>
+                </form>
             </div>
             <h2>... or paste some Markdown here</h2>
             <div id="wanaprez-fromtext">
-                <textarea id="wanaprez-fromtext-md" rows="10" cols="60" placeholder="# My Prez
+                <form id="wanaprez-fromtext-form">
+                    <textarea required id="wanaprez-fromtext-md" rows="10" cols="60" placeholder="# My Prez
 
 ## Some Title
 
 ### Slide 1
 
 Lorem ipsum dolor...
-"></textarea>
-                <button id="wanaprez-fromtext-button">Prez!</button>
+    " name="text"></textarea>
+                    <button id="wanaprez-fromtext-button" type="submit">Prez!</button>
+                </form>
             </div>
             <h2>What is Wanaprez?</h2>
             Read more... on the <a href="#url=./prez.md" id="wanaprez-demo">Wanaprez Prez</a>!
